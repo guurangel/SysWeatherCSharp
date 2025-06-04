@@ -46,8 +46,9 @@ namespace SysWeather.Infrastructure.Mappings
                    .IsRequired();
 
             builder.HasOne(u => u.Municipio)
-                   .WithMany(m => m.Usuarios)
-                   .HasForeignKey(u => u.MunicipioId);
+               .WithMany(m => m.Usuarios)
+               .HasForeignKey(u => u.MunicipioId)
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

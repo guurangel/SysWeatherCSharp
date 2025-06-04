@@ -3,7 +3,6 @@ using SysWeather.Infrastructure.Persistance;
 using SysWeatherC_.DTO.Request;
 using SysWeather.Infrastructure.Contexts;
 
-
 namespace SysWeatherC_.Services
 {
     public class OcorrenciaService
@@ -17,6 +16,11 @@ namespace SysWeatherC_.Services
 
         public async Task<Guid> CriarOcorrenciaAsync(OcorrenciaRequest request)
         {
+            // Verificar se o município existe com CountAsync para evitar problemas com Oracle
+            bool municipioExiste = await _context.Municipios.CountAsync(m => m.Id == request.MunicipioId) > 0;
+            if (!municipioExiste)
+                throw new Exception("Município não encontrado.");
+
             var ocorrencia = new Ocorrencia
             {
                 Id = Guid.NewGuid(),
@@ -27,18 +31,15 @@ namespace SysWeatherC_.Services
                 MunicipioId = request.MunicipioId
             };
 
-            var municipio = await _context.Municipios
-                .Where(m => m.Id == request.MunicipioId)
-                .FirstOrDefaultAsync();
-
-            if (municipio == null)
-                throw new Exception("Município não encontrado");
-
             _context.Ocorrencias.Add(ocorrencia);
 
+            // Carregar usuários do município
             var usuarios = await _context.Usuarios
                 .Where(u => u.MunicipioId == request.MunicipioId)
                 .ToListAsync();
+
+            // Para montar a mensagem, pegar o nome do município (aqui buscamos de novo para pegar o nome)
+            var municipio = await _context.Municipios.FindAsync(request.MunicipioId);
 
             var notificacoes = usuarios.Select(u => new NotificacaoOcorrencia
             {

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using SysWeather.Infrastructure.Contexts;
 using SysWeatherC_.Services;
 
@@ -18,6 +19,7 @@ builder.Services.AddControllers()
         // Para evitar loop de referência circular e JSON formatado
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
         options.JsonSerializerOptions.WriteIndented = true;
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
 // Registrar services do SysWeather

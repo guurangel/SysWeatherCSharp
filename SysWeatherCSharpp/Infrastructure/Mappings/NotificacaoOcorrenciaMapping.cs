@@ -21,11 +21,13 @@ namespace SysWeather.Infrastructure.Mappings
 
             builder.HasOne(e => e.Usuario)
                    .WithMany(u => u.Notificacoes)
-                   .HasForeignKey(e => e.UsuarioId);
+                   .HasForeignKey(e => e.UsuarioId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(e => e.Ocorrencia)
                    .WithMany(o => o.Notificacoes)
-                   .HasForeignKey(e => e.OcorrenciaId);
+                   .HasForeignKey(e => e.OcorrenciaId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

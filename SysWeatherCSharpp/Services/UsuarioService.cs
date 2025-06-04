@@ -21,7 +21,7 @@ namespace SysWeatherC_.Services
                 throw new Exception("Usuário não encontrado.");
 
             bool emailExistente = await _context.Usuarios
-                .AnyAsync(u => u.Email == request.Email && u.Id != usuarioId);
+                .CountAsync(u => u.Email == request.Email && u.Id != usuarioId) > 0;
             if (emailExistente)
                 throw new Exception("Email já está em uso por outro usuário.");
 
@@ -35,11 +35,11 @@ namespace SysWeatherC_.Services
 
         public async Task<Guid> CriarUsuarioAsync(Usuario novoUsuario)
         {
-            bool emailExistente = await _context.Usuarios.AnyAsync(u => u.Email == novoUsuario.Email);
+            bool emailExistente = await _context.Usuarios.CountAsync(u => u.Email == novoUsuario.Email) > 0;
             if (emailExistente)
                 throw new Exception("Email já está em uso.");
 
-            bool cpfExistente = await _context.Usuarios.AnyAsync(u => u.Cpf == novoUsuario.Cpf);
+            bool cpfExistente = await _context.Usuarios.CountAsync(u => u.Cpf == novoUsuario.Cpf) > 0;
             if (cpfExistente)
                 throw new Exception("CPF já está em uso.");
 
@@ -51,6 +51,5 @@ namespace SysWeatherC_.Services
 
             return novoUsuario.Id;
         }
-
     }
 }

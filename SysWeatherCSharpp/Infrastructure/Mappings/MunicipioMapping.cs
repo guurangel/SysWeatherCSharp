@@ -26,10 +26,14 @@ namespace SysWeather.Infrastructure.Mappings
                    .IsRequired();
 
             builder.HasMany(m => m.Usuarios)
-                   .WithOne(u => u.Municipio);
+               .WithOne(u => u.Municipio)
+               .HasForeignKey(u => u.MunicipioId)
+               .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(m => m.Ocorrencias)
-                   .WithOne(o => o.Municipio);
+                   .WithOne(o => o.Municipio)
+                   .HasForeignKey(o => o.MunicipioId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

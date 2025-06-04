@@ -12,7 +12,7 @@ using SysWeather.Infrastructure.Contexts;
 namespace SysWeatherCSharpp.Migrations
 {
     [DbContext(typeof(SysWeatherDbContext))]
-    [Migration("20250603234646_InitialCreate")]
+    [Migration("20250604171132_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -196,7 +196,7 @@ namespace SysWeatherCSharpp.Migrations
                     b.HasOne("SysWeather.Infrastructure.Persistance.Municipio", "Municipio")
                         .WithMany("Ocorrencias")
                         .HasForeignKey("MunicipioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Municipio");
@@ -207,7 +207,7 @@ namespace SysWeatherCSharpp.Migrations
                     b.HasOne("SysWeather.Infrastructure.Persistance.Municipio", "Municipio")
                         .WithMany("Usuarios")
                         .HasForeignKey("MunicipioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Municipio");

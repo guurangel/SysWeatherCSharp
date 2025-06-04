@@ -17,8 +17,10 @@ namespace SysWeatherC_.Services
         public async Task<Guid> CriarMunicipioAsync(MunicipioRequest request)
         {
             bool existeMunicipio = await _context.Municipios
-                .AnyAsync(m => m.Nome.ToLower() == request.Nome.ToLower()
-                            && m.Estado == request.Estado);
+                .CountAsync(m =>
+                    m.Nome.ToUpper() == request.Nome.ToUpper() &&
+                    m.Estado.ToString() == request.Estado.ToString()
+                ) > 0;
 
             if (existeMunicipio)
                 throw new Exception($"Já existe um município chamado '{request.Nome}' no estado '{request.Estado}'.");
@@ -49,9 +51,11 @@ namespace SysWeatherC_.Services
                 throw new Exception("Município não encontrado.");
 
             bool existeOutro = await _context.Municipios
-                .AnyAsync(m => m.Id != municipioId
-                            && m.Nome.ToLower() == request.Nome.ToLower()
-                            && m.Estado == request.Estado);
+                .CountAsync(m =>
+                    m.Id != municipioId &&
+                    m.Nome.ToUpper() == request.Nome.ToUpper() &&
+                    m.Estado.ToString() == request.Estado.ToString()
+                ) > 0;
 
             if (existeOutro)
                 throw new Exception($"Já existe outro município chamado '{request.Nome}' no estado '{request.Estado}'.");
@@ -66,6 +70,5 @@ namespace SysWeatherC_.Services
 
             await _context.SaveChangesAsync();
         }
-
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using SysWeather.Infrastructure.Persistance.Enums;
 
-
 namespace SysWeatherC_.DTO.Request
 {
     public class MunicipioRequest

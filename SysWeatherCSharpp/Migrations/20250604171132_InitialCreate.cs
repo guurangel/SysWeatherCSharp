@@ -48,7 +48,7 @@ namespace SysWeatherCSharpp.Migrations
                         column: x => x.MunicipioId,
                         principalTable: "MunicipiosC",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,7 +72,7 @@ namespace SysWeatherCSharpp.Migrations
                         column: x => x.MunicipioId,
                         principalTable: "MunicipiosC",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
