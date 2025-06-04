@@ -1,0 +1,6 @@
+@SysWeatherCSharpp_HostAddress = http://localhost:5147
+
+GET {{SysWeatherCSharpp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
