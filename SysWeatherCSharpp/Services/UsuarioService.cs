@@ -2,6 +2,8 @@
 using SysWeather.Infrastructure.Contexts;
 using SysWeather.Infrastructure.Persistance;
 using SysWeatherC_.DTO.Request;
+using SysWeatherCSharpp.DTO.Request;
+using SysWeatherCSharpp.Infrastructure.Extensions;
 
 namespace SysWeatherC_.Services
 {
@@ -50,6 +52,15 @@ namespace SysWeatherC_.Services
             await _context.SaveChangesAsync();
 
             return novoUsuario.Id;
+        }
+
+        public async Task<IEnumerable<Usuario>> ObterUsuariosComFiltroAsync(UsuarioFiltersRequest filtros)
+        {
+            var query = _context.Usuarios.Include(u => u.Municipio).AsQueryable();
+
+            query = query.AplicarFiltros(filtros);
+
+            return await query.ToListAsync();
         }
     }
 }

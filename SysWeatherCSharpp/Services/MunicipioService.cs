@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SysWeather.Infrastructure.Contexts;
 using SysWeather.Infrastructure.Persistance;
 using SysWeatherC_.DTO.Request;
-using SysWeather.Infrastructure.Contexts;
+using SysWeatherCSharpp.DTO.Request;
+using SysWeatherCSharpp.Infrastructure.Extensions;
 
 namespace SysWeatherC_.Services
 {
@@ -69,6 +71,15 @@ namespace SysWeatherC_.Services
             municipio.AreaKm2 = request.AreaKm2;
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Municipio>> ObterMunicipiosComFiltroAsync(MunicipioFiltersRequest filtros)
+        {
+            var query = _context.Municipios.AsQueryable();
+
+            query = query.AplicarFiltros(filtros);
+
+            return await query.ToListAsync();
         }
     }
 }

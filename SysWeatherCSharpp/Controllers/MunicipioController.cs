@@ -4,6 +4,7 @@ using SysWeather.Infrastructure.Contexts;
 using SysWeatherC_.DTO.Request;
 using SysWeatherC_.DTO.Response;
 using SysWeatherC_.Services;
+using SysWeatherCSharpp.DTO.Request;
 
 namespace SysWeatherC_.Controllers
 {
@@ -22,9 +23,9 @@ namespace SysWeatherC_.Controllers
 
         // GET: api/municipio
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MunicipioResponse>>> GetAll()
+        public async Task<ActionResult<IEnumerable<MunicipioResponse>>> GetAll([FromQuery] MunicipioFiltersRequest filtros)
         {
-            var municipios = await _context.Municipios.ToListAsync();
+            var municipios = await _service.ObterMunicipiosComFiltroAsync(filtros);
 
             var response = municipios.Select(m => new MunicipioResponse
             {

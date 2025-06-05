@@ -5,6 +5,7 @@ using SysWeather.Infrastructure.Persistance;
 using SysWeatherC_.DTO.Request;
 using SysWeatherC_.DTO.Response;
 using SysWeatherC_.Services;
+using SysWeatherCSharpp.DTO.Request;
 
 namespace SysWeatherC_.Controllers
 {
@@ -21,13 +22,10 @@ namespace SysWeatherC_.Controllers
             _service = service;
         }
 
-        // GET: api/usuario
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UsuarioResponse>>> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] UsuarioFiltersRequest filtros)
         {
-            var usuarios = await _context.Usuarios
-                .Include(u => u.Municipio)
-                .ToListAsync();
+            var usuarios = (await _service.ObterUsuariosComFiltroAsync(filtros)).ToList(); // Executa a consulta primeiro
 
             var response = usuarios.Select(u => new UsuarioResponse
             {
