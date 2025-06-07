@@ -60,7 +60,7 @@ namespace SysWeatherCSharpp.Migrations
                     Email = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     Senha = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     Cpf = table.Column<string>(type: "NVARCHAR2(11)", maxLength: 11, nullable: false),
-                    DataNascimento = table.Column<string>(type: "NVARCHAR2(10)", nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     MunicipioId = table.Column<Guid>(type: "RAW(16)", nullable: false)
                 },

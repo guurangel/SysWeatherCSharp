@@ -12,7 +12,7 @@ using SysWeather.Infrastructure.Contexts;
 namespace SysWeatherCSharpp.Migrations
 {
     [DbContext(typeof(SysWeatherDbContext))]
-    [Migration("20250604171132_InitialCreate")]
+    [Migration("20250606160015_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -137,9 +137,8 @@ namespace SysWeatherCSharpp.Migrations
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("DataNascimento")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(10)");
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -11,9 +11,9 @@
         public DateTime? DataCadastroInicio { get; set; }
         public DateTime? DataCadastroFim { get; set; }
 
-        public DateOnly? DataNascimento { get; set; }
-        public DateOnly? DataNascimentoInicio { get; set; }
-        public DateOnly? DataNascimentoFim { get; set; }
+        public DateTime? DataNascimento { get; set; }
+        public DateTime? DataNascimentoInicio { get; set; }
+        public DateTime? DataNascimentoFim { get; set; }
     }
 }
 

@@ -4,6 +4,8 @@ using SysWeather.Infrastructure.Contexts;
 using SysWeatherC_.DTO.Request;
 using SysWeatherC_.DTO.Response;
 using SysWeatherC_.Services;
+using SysWeatherCSharpp.DTO.Request;
+using SysWeatherCSharpp.Infrastructure.Extensions;
 
 namespace SysWeatherC_.Controllers
 {
@@ -22,16 +24,13 @@ namespace SysWeatherC_.Controllers
 
         // GET: api/ocorrencia
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OcorrenciaResponse>>> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] OcorrenciaFiltersRequest filtros)
         {
-            var ocorrencias = await _context.Ocorrencias
-                .Include(o => o.Municipio)
-                .ToListAsync();
+            var ocorrencias = (await _service.ObterOcorrenciasComFiltroAsync(filtros)).ToList(); // Força execução
 
             var response = ocorrencias.Select(o => new OcorrenciaResponse
             {
                 Id = o.Id,
-                Descricao = o.Descricao,
                 Tipo = o.Tipo,
                 NivelRisco = o.NivelRisco,
                 DataOcorrencia = o.DataOcorrencia,

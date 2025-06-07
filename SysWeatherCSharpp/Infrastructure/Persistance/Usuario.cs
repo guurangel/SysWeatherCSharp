@@ -25,8 +25,7 @@ namespace SysWeather.Infrastructure.Persistance
         public string Cpf { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "A data de nascimento é obrigatória")]
-        [DataType(DataType.Date)]
-        public DateOnly DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         [Required]
         public DateTime DataCadastro { get; set; } = DateTime.UtcNow;

@@ -134,9 +134,8 @@ namespace SysWeatherCSharpp.Migrations
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("TIMESTAMP(7)");
 
-                    b.Property<string>("DataNascimento")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(10)");
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("Email")
                         .IsRequired()

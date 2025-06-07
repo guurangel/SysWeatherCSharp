@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SysWeather.Infrastructure.Contexts;
 using SysWeather.Infrastructure.Persistance;
 using SysWeatherC_.DTO.Request;
-using SysWeather.Infrastructure.Contexts;
+using SysWeatherCSharpp.DTO.Request;
+using SysWeatherCSharpp.Infrastructure.Extensions;
 
 namespace SysWeatherC_.Services
 {
@@ -55,6 +57,17 @@ namespace SysWeatherC_.Services
             await _context.SaveChangesAsync();
 
             return ocorrencia.Id;
+            }
+
+        public async Task<IEnumerable<Ocorrencia>> ObterOcorrenciasComFiltroAsync(OcorrenciaFiltersRequest filtros)
+        {
+            var query = _context.Ocorrencias
+                                .Include(o => o.Municipio)
+                                .AsQueryable();
+
+            query = query.AplicarFiltros(filtros);
+
+            return await query.ToListAsync();
         }
     }
 }

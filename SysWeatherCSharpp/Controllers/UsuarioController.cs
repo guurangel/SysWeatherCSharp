@@ -33,6 +33,8 @@ namespace SysWeatherC_.Controllers
                 Nome = u.Nome,
                 Email = u.Email,
                 Cpf = u.Cpf,
+                DataCadastro = u.DataCadastro,
+                DataNascimento = u.DataNascimento.Date,
                 MunicipioId = u.MunicipioId,
                 MunicipioNome = u.Municipio.Nome
             });
@@ -76,6 +78,7 @@ namespace SysWeatherC_.Controllers
                     Email = request.Email,
                     Senha = request.Senha,
                     Cpf = request.Cpf,
+                    DataNascimento = request.DataNascimento.Date,
                     MunicipioId = request.MunicipioId
                 };
 
