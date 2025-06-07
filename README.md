@@ -175,70 +175,77 @@ Acesse o Swagger para testar os endpoints:
 ## 🗂 Estrutura do Projeto
 
 ```plaintext
-SYSWEATHER/
-├── src/
-│   ├── main/
-│   │   ├── java/com/java/sysweather/
-│   │   │   ├── config/
-│   │   │   ├── controller/
-│   │   │   │   ├── MunicipioController.java
-│   │   │   │   ├── NotificacaoController.java
-│   │   │   │   ├── OcorrenciaController.java
-│   │   │   │   └── UsuarioController.java
-│   │   │   ├── dto/response/
-│   │   │   │   ├── MunicipioDetalhadoResponse.java
-│   │   │   │   ├── MunicipioResumoResponse.java
-│   │   │   │   ├── MunicipioSimplesResponse.java
-│   │   │   │   ├── NotificacaoOcorrenciaResponse.java
-│   │   │   │   ├── OcorrenciaResponse.java
-│   │   │   │   ├── OcorrenciaResumoResponse.java
-│   │   │   │   ├── UsuarioDetalhadoResponse.java
-│   │   │   │   ├── UsuarioResponse.java
-│   │   │   │   ├── UsuarioResumoResponse.java
-│   │   │   │   └── UsuarioSimplesResponse.java
-│   │   │   ├── exception/
-│   │   │   │   └── ValidationHandler.java
-│   │   │   ├── mapper/
-│   │   │   │   ├── MunicipioMapper.java
-│   │   │   │   ├── NotificacaoMapper.java
-│   │   │   │   ├── OcorrenciaMapper.java
-│   │   │   │   └── UsuarioMapper.java
-│   │   │   ├── model/
-│   │   │   │   ├── enums/
-│   │   │   │   │   ├── Clima.java
-│   │   │   │   │   ├── Estado.java
-│   │   │   │   │   ├── NivelRisco.java
-│   │   │   │   │   ├── Regiao.java
-│   │   │   │   │   └── TipoOcorrencia.java
-│   │   │   │   ├── Municipio.java
-│   │   │   │   ├── NotificacaoOcorrencia.java
-│   │   │   │   ├── Ocorrencia.java
-│   │   │   │   └── Usuario.java
-│   │   │   ├── repository/
-│   │   │   │   ├── MunicipioRepository.java
-│   │   │   │   ├── NotificacaoRepository.java
-│   │   │   │   ├── OcorrenciaRepository.java
-│   │   │   │   └── UsuarioRepository.java
-│   │   │   ├── service/
-│   │   │   │   ├── MunicipioService.java
-│   │   │   │   ├── OcorrenciaService.java
-│   │   │   │   └── UsuarioService.java
-│   │   │   ├── specification/
-│   │   │   │   ├── MunicipioSpecification.java
-│   │   │   │   ├── OcorrenciaService.java
-│   │   │   │   └── UsuarioSpecification.java
-│   │   │   ├── App.java
-│   │   │   └── resources/
-│   │   │       ├── static/
-│   │   │       ├── templates/
-│   │   │       └── application.properties
-│   └── test/
-├── pom.xml
-├── Dockerfile
-└── README.md
+📁 SysWeatherCSharpp/
+├── 📁 Controllers/
+│   ├── 📄 MunicipioController.cs
+│   ├── 📄 NotificacaoController.cs
+│   ├── 📄 OcorrenciaController.cs
+│   └── 📄 UsuarioController.cs
+│
+├── 📁 DTO/
+│   ├── 📁 Request/
+│   │   ├── 📄 AtualizarUsuarioRequest.cs
+│   │   ├── 📄 MunicipioFiltersRequest.cs
+│   │   ├── 📄 MunicipioRequest.cs
+│   │   ├── 📄 OcorrenciaFiltersRequest.cs
+│   │   ├── 📄 OcorrenciaRequest.cs
+│   │   ├── 📄 UsuarioFiltersRequest.cs
+│   │   └── 📄 UsuarioRequest.cs
+│   │
+│   └── 📁 Response/
+│       ├── 📄 MunicipioResponse.cs
+│       ├── 📄 NotificacaoOcorrenciaResponse.cs
+│       ├── 📄 OcorrenciaResponse.cs
+│       └── 📄 UsuarioResponse.cs
+│
+├── 📁 Infrastructure/
+│   ├── 📁 Contexts/
+│   │   └── 📄 SysWeatherDbContext.cs
+│   │
+│   ├── 📁 Extensions/
+│   │   ├── 📄 MunicipioFiltersExtensions.cs
+│   │   ├── 📄 OcorrenciaFiltersExtensions.cs
+│   │   └── 📄 UsuarioFiltersExtensions.cs
+│   │
+│   ├── 📁 Mappings/
+│   │   ├── 📄 MunicipioMapping.cs
+│   │   ├── 📄 NotificacaoOcorrenciaMapping.cs
+│   │   ├── 📄 OcorrenciaMapping.cs
+│   │   └── 📄 UsuarioMapping.cs
+│   │
+│   └── 📁 Persistence/
+│       ├── 📁 Enums/
+│       │   ├── 📄 Clima.cs
+│       │   ├── 📄 Estados.cs
+│       │   ├── 📄 NivelRisco.cs
+│       │   ├── 📄 Regiao.cs
+│       │   └── 📄 TipoOcorrencia.cs
+│       │
+│       ├── 📄 Municipio.cs
+│       ├── 📄 NotificacaoOcorrencia.cs
+│       ├── 📄 Ocorrencia.cs
+│       └── 📄 Usuario.cs
+│
+├── 📁 Properties/
+│   └── 📄 launchSettings.json
+│
+├── 📁 Services/
+│   ├── 📄 MunicipioService.cs
+│   ├── 📄 OcorrenciaService.cs
+│   └── 📄 UsuarioService.cs
+│
+├── 📄 Program.cs
+├── 📄 SysWeatherCSharpp.csproj
+├── 📄 SysWeatherCSharpp.http
+├── 📄 appsettings.Development.json
+├── 📄 appsettings.json
+├── 📄 .gitattributes
+├── 📄 .gitignore
+├── 📄 README.md
+└── 📄 SysWeatherCSharpp.sln
 ```
 
-**Descrição:** estrutura do projeto segue uma arquitetura em camadas, organizada para garantir separação de responsabilidades. Os diretórios incluem configurações, controllers, services, Infrastructure, DTOs, tratadores de exceção, mapeadores, specifications e recursos estáticos, além do arquivo de configuração do Maven e o README.
+**Descrição:** estrutura do projeto segue uma arquitetura em camadas, organizada para garantir separação de responsabilidades. Os diretórios incluem configurações, controllers, services, Infrastructure, DTOs, recursos estáticos, e o README.
 
 ---
 
@@ -247,55 +254,59 @@ SYSWEATHER/
 ### Municipio
 
 ```
-id: Long
-nome: String
-estado: Estado
-numero_habitantes: Integer
-clima: Clima
-regiao: Regiao
-altitude: Double
-areaKm2: Double
-usuarios: List<Usuario>
-ocorrencias: List<Ocorrencia>
+Id: Guid
+Nome: String
+Estado: Estado
+NumeroHabitantes: Integer
+Clima: Clima
+Regiao: Regiao
+Altitude: Double
+AreaKm2: Double
+Usuarios: List<Usuario>
+Ocorrencias: List<Ocorrencia>
 ```
 
 **Descrição:** Representa uma cidade monitorada pelo sistema. Contém dados geográficos e demográficos, além de listas com os usuários residentes e ocorrências registradas na localidade.
 
 ### Usuario
 
-```java
-id: Long
-nome: String
-email: String
-senha: String
-cpf: String
-dataNascimento: LocalDate
-dataCadastro: LocalDateTime
-municipio: Municipio
-notificacoes: List<NotificacaoOcorrencia>
+```
+Id: Guid
+Nome: String
+Email: String
+Senha: String
+Cpf: String
+DataNascimento: DateTime
+DataCadastro: DateTime
+MunicipioId: Guid
+Municipio: Municipio
+Notificacoes: List<NotificacaoOcorrencia>
 ```
 
 **Descrição:** Representa um cidadão cadastrado na plataforma. Contém informações pessoais, vínculo com um município e histórico de notificações recebidas relacionadas a eventos climáticos.
 
 ### Ocorrencia
-```java
-id: Long
-descricao: String
-tipo: TipoOcorrencia
-nivelRisco: NivelRisco
-dataOcorrencia: LocalDateTime
-municipio: Municipio
+```
+Id: Guid
+Descricao: String
+Tipo: TipoOcorrencia
+NivelRisco: NivelRisco
+DataOcorrencia: DateTime
+MunicipioId: Guid
+Municipio: Municipio
 ```
 
 **Descrição:** Representa um evento climático extremo (como enchente, tempestade etc.) ocorrido em um município específico. Possui tipo, nível de risco e data de ocorrência.
 
 ### NotificacaoOcorrencia
-```java
-id: Long
-mensagem: String
-dataEnvio: LocalDateTime
-usuario: Usuario
-ocorrencia: Ocorrencia
+```
+Id: Guid
+Mensagem: String
+DataEnvio: DateTime
+UsuarioId: Guid
+Usuario: Usuario
+OcorrenciaId: Guid
+Ocorrencia: Ocorrencia
 ```
 
 **Descrição:** Representa uma notificação enviada a um usuário sobre uma ocorrência climática. Inclui a mensagem, data de envio e os vínculos com o usuário e a ocorrência correspondente.
@@ -307,7 +318,7 @@ ocorrencia: Ocorrencia
 ### `Estado`
 Enum que representa os estados brasileiros.
 
-```java
+```
 AC, AL, AP, AM, BA, CE, DF, ES, GO, MA,
 MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN,
 RS, RO, RR, SC, SP, SE, TO
@@ -316,7 +327,7 @@ RS, RO, RR, SC, SP, SE, TO
 ### `Clima`
 Enum que representa os climas.
 
-```java
+```
 TROPICAL, SEMI_ARIDO,
 EQUATORIAL, SUBTROPICAL,
 TEMPERADO, ÁRIDO,
@@ -326,7 +337,7 @@ MEDITERRÂNEO, CONTINENTAL
 ### `Regiao`
 Enum que representa as regiões geográficas do Brasil.
 
-```java
+```
 NORTE, NORDESTE, CENTRO_OESTE, SUDESTE, SUL
 ```
 
@@ -342,7 +353,7 @@ SECA, INUNDACAO
 ### `NivelRisco`
 Enum que define o grau de severidade de uma ocorrência climática.
 
-```java
+```
 BAIXO, MEDIO, ALTO
 ```
 
