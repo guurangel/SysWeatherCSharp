@@ -9,7 +9,7 @@
 - [🧪 Como Executar](#-como-executar)
 - [📌 Endpoints da API](#-endpoints-da-api)
 - [✅ Funcionalidades](#-funcionalidades)
-- [📈 Diagrama da Solução](#-diagrama-da-solucao)
+- [📈 Diagrama da Solução](#-diagrama-da-solucão)
 - [🗂 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🗃️ Modelo de Entidades](#-modelo-de-entidades)
 - [📚 Enums das Entidades](#-enums-das-entidades)
