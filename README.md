@@ -9,6 +9,7 @@
 - [🧪 Como Executar](#-como-executar)
 - [📌 Endpoints da API](#-endpoints-da-api)
 - [✅ Funcionalidades](#-funcionalidades)
+- [📈 Diagrama da Solução](#-diagrama-da-solucao)
 - [🗂 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🗃️ Modelo de Entidades](#-modelo-de-entidades)
 - [📚 Enums das Entidades](#-enums-das-entidades)
@@ -172,8 +173,11 @@ Acesse o Swagger para testar os endpoints:
 
 ---
 
-## 🗂 Diagrama da Solução
+## 📈 Diagrama da Solução
 
+![Diagrama](SysWeatherCSharpp/Diagram/SysWeather.drawio.png)
+
+**Descrição:** Diagrama da solução SysWeather para a disciplina de Advanced Business Development With .NET.
 
 ---
 
