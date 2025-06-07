@@ -172,6 +172,11 @@ Acesse o Swagger para testar os endpoints:
 
 ---
 
+## 🗂 Diagrama da Solução
+
+
+---
+
 ## 🗂 Estrutura do Projeto
 
 ```plaintext
@@ -181,6 +186,9 @@ Acesse o Swagger para testar os endpoints:
 │   ├── 📄 NotificacaoController.cs
 │   ├── 📄 OcorrenciaController.cs
 │   └── 📄 UsuarioController.cs
+│
+├── 📁 Diagram/
+│   ├── 📄 SysWeather.drawio.png
 │
 ├── 📁 DTO/
 │   ├── 📁 Request/
